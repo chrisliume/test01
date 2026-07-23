@@ -1,0 +1,77 @@
+{
+  "problem_summary": "The repository is a skeleton Node.js project containing only a package.json with placeholder scripts, a package-lock.json, and a CI workflow. It lacks any source code, tests, documentation, coding conventions, environment configuration, and project structure—making it essentially impossible for an AI agent or new contributor to understand, build, test, or extend the project.",
+  "items": [
+    {
+      "description": "Create a README.md with project introduction, purpose, prerequisites (Node.js >= 18), installation steps (npm install), how to run locally, and contribution guidelines.",
+      "affected_areas": "README.md (new file, project root)",
+      "expected_benefit": "Provides essential onboarding context for both AI agents and human contributors, satisfying local setup instruction and README completeness requirements.",
+      "implementation_risk": "Minimal—purely additive documentation with no code impact.",
+      "estimated_complexity": "low",
+      "source_criterion_key": "readme_completeness"
+    },
+    {
+      "description": "Establish a clear directory structure: create src/ for application source code, tests/ for test files, and docs/ for project documentation.",
+      "affected_areas": "src/, tests/, docs/ (new directories)",
+      "expected_benefit": "Gives the project semantic layering so AI tools and developers can locate code by convention rather than searching a flat root.",
+      "implementation_risk": "Low—the project has no existing source files to relocate, so no breakage risk.",
+      "estimated_complexity": "low",
+      "source_criterion_key": "repo_structure_clarity"
+    },
+    {
+      "description": "Add architecture documentation in docs/architecture.md and at least one ADR (docs/adr/001-initial-setup.md) explaining the technology choices and project design.",
+      "affected_areas": "docs/architecture.md, docs/adr/ (new files)",
+      "expected_benefit": "Enables AI agents to understand system design intent and constraints without reverse-engineering placeholder configs.",
+      "implementation_risk": "Minimal—documentation only. Risk is that docs become stale if not maintained.",
+      "estimated_complexity": "medium",
+      "source_criterion_key": "architecture_documentation"
+    },
+    {
+      "description": "Add a .env.example file listing required environment variables (e.g., NODE_ENV, PORT) with comments describing each variable's purpose and expected values.",
+      "affected_areas": ".env.example (new file, project root)",
+      "expected_benefit": "AI agents and developers can configure the project without guessing which environment variables are needed.",
+      "implementation_risk": "Minimal—additive file. Must ensure no real secrets are committed.",
+      "estimated_complexity": "low",
+      "source_criterion_key": "environment_configuration"
+    },
+    {
+      "description": "Configure ESLint and Prettier with shared config files (.eslintrc.json, .prettierrc), add an .editorconfig, and integrate lint-staged + husky for pre-commit formatting enforcement.",
+      "affected_areas": ".eslintrc.json, .prettierrc, .editorconfig, .husky/, package.json (devDependencies and scripts)",
+      "expected_benefit": "Enforces consistent code style across all contributors (human and AI), reducing review friction and preventing style drift.",
+      "implementation_risk": "Low-to-moderate—introduces dev dependencies and git hooks that must not break CI. Requires testing the hook setup.",
+      "estimated_complexity": "medium",
+      "source_criterion_key": "coding_convention"
+    },
+    {
+      "description": "Replace the placeholder build script with a real build tool (e.g., tsc for TypeScript compilation or esbuild for bundling), configure it, and document the build command in the README.",
+      "affected_areas": "package.json (scripts.build, devDependencies), tsconfig.json or esbuild.config.js (new), README.md",
+      "expected_benefit": "Produces meaningful build output that CI can validate, and gives AI agents confidence that 'npm run build' will verify compilation correctness.",
+      "implementation_risk": "Moderate—requires deciding on a build tool and ensuring CI still passes. The current CI 'build' job will fail if misconfigured.",
+      "estimated_complexity": "medium",
+      "source_criterion_key": "build_command_availability"
+    },
+    {
+      "description": "Add a test framework (Jest or Vitest), configure it, create at least one sample test in tests/, and update the package.json test script to run it.",
+      "affected_areas": "package.json (scripts.test, devDependencies), jest.config.js or vitest.config.ts (new), tests/ (new test files), .github/workflows/ci.yml",
+      "expected_benefit": "Enables AI agents to verify changes via automated tests rather than relying on manual validation. CI will provide real pass/fail signals.",
+      "implementation_risk": "Low—no existing tests to break. Requires ensuring CI picks up the new test runner correctly.",
+      "estimated_complexity": "medium",
+      "source_criterion_key": "test_availability"
+    },
+    {
+      "description": "Add GitHub issue templates (.github/ISSUE_TEMPLATE/bug_report.md, feature_request.md), a pull request template (.github/pull_request_template.md), and configure commitlint for conventional commit messages.",
+      "affected_areas": ".github/ISSUE_TEMPLATE/ (new), .github/pull_request_template.md (new), commitlint.config.js (new), package.json (devDependencies)",
+      "expected_benefit": "Standardizes how work is described and tracked, enabling AI agents to parse issues/PRs programmatically and generate conformant commit messages.",
+      "implementation_risk": "Low—purely additive templates and config. Commitlint hook could reject non-conforming commits if not communicated to team.",
+      "estimated_complexity": "medium",
+      "source_criterion_key": "issue_task_traceability"
+    },
+    {
+      "description": "Add a dedicated 'Local Setup' section to README.md covering prerequisites, clone instructions, npm install, environment variable configuration from .env.example, and how to start the dev server.",
+      "affected_areas": "README.md",
+      "expected_benefit": "Gives AI agents and new developers a deterministic, step-by-step path from clone to running project—critical for autonomous operation.",
+      "implementation_risk": "Minimal—documentation only, depends on other items (build tool, env config) being in place first.",
+      "estimated_complexity": "low",
+      "source_criterion_key": "local_setup_instruction"
+    }
+  ]
+}
