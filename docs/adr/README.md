@@ -18,10 +18,10 @@ Each ADR follows this structure:
 
 ## Index
 
-| ADR | Title | Status |
-|-----|-------|--------|
-| [001](001-use-nodejs-with-typescript.md) | Use Node.js as the runtime platform | Accepted |
-| [002](002-use-postgresql-primary-database.md) | Use PostgreSQL as the primary database | Accepted |
-| [003](003-jwt-based-authentication.md) | Use JWT for API authentication | Accepted |
-| [004](004-use-redis-for-caching-and-sessions.md) | Use Redis for caching and sessions | Accepted |
-| [005](005-github-actions-for-ci-cd.md) | Use GitHub Actions for CI/CD | Accepted |
+| ADR                                              | Title                                  | Status   |
+| ------------------------------------------------ | -------------------------------------- | -------- |
+| [001](001-use-nodejs-with-typescript.md)         | Use Node.js as the runtime platform    | Accepted |
+| [002](002-use-postgresql-primary-database.md)    | Use PostgreSQL as the primary database | Accepted |
+| [003](003-jwt-based-authentication.md)           | Use JWT for API authentication         | Accepted |
+| [004](004-use-redis-for-caching-and-sessions.md) | Use Redis for caching and sessions     | Accepted |
+| [005](005-github-actions-for-ci-cd.md)           | Use GitHub Actions for CI/CD           | Accepted |

@@ -23,12 +23,12 @@ Test01 is a Node.js web application following a layered architecture pattern. It
 
 ### Application Layer
 
-| Layer | Responsibility |
-|-------|---------------|
-| **HTTP/Router** | Request routing, CORS handling, input parsing |
-| **Authentication** | JWT token issuance/validation, session management |
-| **Business Logic** | Domain rules, data transformation, orchestration |
-| **Data Access** | Database queries, Redis operations, external service calls |
+| Layer              | Responsibility                                             |
+| ------------------ | ---------------------------------------------------------- |
+| **HTTP/Router**    | Request routing, CORS handling, input parsing              |
+| **Authentication** | JWT token issuance/validation, session management          |
+| **Business Logic** | Domain rules, data transformation, orchestration           |
+| **Data Access**    | Database queries, Redis operations, external service calls |
 
 ### Infrastructure Components
 
@@ -40,13 +40,13 @@ Test01 is a Node.js web application following a layered architecture pattern. It
 
 Design decisions are tracked as Architecture Decision Records (ADRs) in [`docs/adr/`](./adr/).
 
-| ADR | Decision |
-|-----|----------|
-| [ADR-001](./adr/001-use-nodejs-with-typescript.md) | Use Node.js as the runtime platform |
-| [ADR-002](./adr/002-use-postgresql-primary-database.md) | Use PostgreSQL as the primary database |
-| [ADR-003](./adr/003-jwt-based-authentication.md) | Use JWT for API authentication |
-| [ADR-004](./adr/004-use-redis-for-caching-and-sessions.md) | Use Redis for caching and sessions |
-| [ADR-005](./adr/005-github-actions-for-ci-cd.md) | Use GitHub Actions for CI/CD |
+| ADR                                                        | Decision                               |
+| ---------------------------------------------------------- | -------------------------------------- |
+| [ADR-001](./adr/001-use-nodejs-with-typescript.md)         | Use Node.js as the runtime platform    |
+| [ADR-002](./adr/002-use-postgresql-primary-database.md)    | Use PostgreSQL as the primary database |
+| [ADR-003](./adr/003-jwt-based-authentication.md)           | Use JWT for API authentication         |
+| [ADR-004](./adr/004-use-redis-for-caching-and-sessions.md) | Use Redis for caching and sessions     |
+| [ADR-005](./adr/005-github-actions-for-ci-cd.md)           | Use GitHub Actions for CI/CD           |
 
 ## Deployment
 

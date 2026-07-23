@@ -8,8 +8,20 @@
   },
   "scripts": {
     "build": "echo \"No build configured\"",
-    "test": "echo \"No tests configured\" && exit 0"
+    "test": "echo \"No tests configured\" && exit 0",
+    "lint": "eslint . --ext .js,.mjs,.cjs --no-error-on-unmatched-pattern",
+    "lint:fix": "eslint . --ext .js,.mjs,.cjs --fix --no-error-on-unmatched-pattern",
+    "format": "prettier --write \"**/*.{js,mjs,cjs,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{js,mjs,cjs,json,md,yml,yaml}\"",
+    "prepare": "husky"
   },
   "keywords": [],
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.1.0",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.3.0"
+  }
 }
