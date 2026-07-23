@@ -1,0 +1,15 @@
+{
+  "name": "test01",
+  "version": "0.1.0",
+  "description": "Test01 project",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "echo \"No build configured\"",
+    "test": "echo \"No tests configured\" && exit 0"
+  },
+  "keywords": [],
+  "license": "MIT"
+}
