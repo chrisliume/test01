@@ -1,0 +1,53 @@
+{
+  "problem_summary": "The repository lacks essential developer documentation (no README.md), has no real build or start command, has no issue/PR templates or commit message conventions for traceability, and test commands are undiscoverable to new contributors. These gaps make it difficult for both human and AI contributors to onboard, understand the project purpose, set up a local environment, or follow contribution workflows.",
+  "items": [
+    {
+      "description": "Create a comprehensive README.md with project introduction, feature list, technology stack (Node.js, PostgreSQL, Redis), prerequisites, installation steps (npm install), environment setup (cp .env.example .env), database setup, startup command, and links to docs/ directory.",
+      "affected_areas": "README.md (new file at repository root)",
+      "expected_benefit": "New contributors and AI agents can immediately understand the project purpose, set up a local development environment, and discover available commands without reading source code.",
+      "implementation_risk": "Low — purely additive documentation with no code changes. Risk is only that documentation drifts from actual setup if not maintained.",
+      "estimated_complexity": "low",
+      "source_criterion_key": "readme_completeness"
+    },
+    {
+      "description": "Document local setup instructions in the README including prerequisites (Node.js >=18, PostgreSQL, Redis), step-by-step installation, environment variable configuration via .env.example, database initialization, and how to start the application.",
+      "affected_areas": "README.md (local development section)",
+      "expected_benefit": "Eliminates guesswork for new contributors; provides a single authoritative source for environment setup that AI tools can parse to automate onboarding.",
+      "implementation_risk": "Low — documentation only. The .env.example already exists with detailed comments, so this consolidates existing information.",
+      "estimated_complexity": "low",
+      "source_criterion_key": "local_setup_instruction"
+    },
+    {
+      "description": "Replace the placeholder build script ('echo \"No build configured\"') with either a real build step (e.g., a bundler or TypeScript compilation as ADR-001 suggests TypeScript) or explicitly document that the project runs directly via Node.js and add a 'start' script (e.g., 'node src/index.js') to package.json.",
+      "affected_areas": "package.json (scripts.build, scripts.start), README.md (build/run section), .github/workflows/ci.yml (build job)",
+      "expected_benefit": "CI build step becomes meaningful; AI agents and contributors can reliably build and run the project using standard npm scripts without ambiguity.",
+      "implementation_risk": "Low to medium — changing the build script could affect CI if the new command fails. Should be tested in CI before merging.",
+      "estimated_complexity": "low",
+      "source_criterion_key": "build_command_availability"
+    },
+    {
+      "description": "Add GitHub Issue templates (.github/ISSUE_TEMPLATE/bug_report.md and .github/ISSUE_TEMPLATE/feature_request.md) and a Pull Request template (.github/pull_request_template.md) to standardize how work is proposed and reviewed.",
+      "affected_areas": ".github/ISSUE_TEMPLATE/ (new directory with templates), .github/pull_request_template.md (new file)",
+      "expected_benefit": "Provides structured formats for reporting bugs and requesting features, ensuring all relevant information is captured. AI agents can parse templates to auto-fill issues and PRs consistently.",
+      "implementation_risk": "Low — additive files that do not affect existing workflows. Templates can be iterated on after initial creation.",
+      "estimated_complexity": "low",
+      "source_criterion_key": "issue_task_traceability"
+    },
+    {
+      "description": "Add commitlint with conventional-commits config (@commitlint/config-conventional) and a commit-msg husky hook to enforce structured commit messages (feat:, fix:, docs:, etc.) across the project.",
+      "affected_areas": "package.json (new devDependencies: @commitlint/cli, @commitlint/config-conventional), commitlint.config.js (new), .husky/commit-msg (new hook)",
+      "expected_benefit": "Enforces consistent, parseable commit history enabling automated changelogs, semantic versioning, and AI-driven commit classification and traceability.",
+      "implementation_risk": "Medium — introduces a new hook that will reject non-conforming commits from all contributors. Existing contributors need to be informed of the convention. May cause friction if not communicated.",
+      "estimated_complexity": "medium",
+      "source_criterion_key": "issue_task_traceability"
+    },
+    {
+      "description": "Document test commands (npm test, npm run test:watch, npm run test:coverage) in the README under a 'Testing' section so new contributors can discover how to run and extend the test suite.",
+      "affected_areas": "README.md (testing section)",
+      "expected_benefit": "New contributors and AI agents can immediately find and run tests without inspecting package.json scripts. Reduces onboarding friction and increases likelihood of test-driven contributions.",
+      "implementation_risk": "Low — purely additive documentation. The test infrastructure (Jest, test scripts) already exists and works.",
+      "estimated_complexity": "low",
+      "source_criterion_key": "test_availability"
+    }
+  ]
+}
