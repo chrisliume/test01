@@ -16,5 +16,13 @@
     "no-var": "error",
     "prefer-const": "error"
   },
+  "overrides": [
+    {
+      "files": ["tests/**/*.js"],
+      "env": {
+        "jest": true
+      }
+    }
+  ],
   "ignorePatterns": ["node_modules/", "dist/", "build/", "coverage/"]
 }
