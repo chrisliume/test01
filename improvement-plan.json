@@ -1,0 +1,37 @@
+{
+  "problem_summary": "The repository lacks fundamental developer onboarding documentation (no README.md), has no issue/PR templates or commit message conventions for traceability, and its build script is a placeholder that performs no actual compilation or bundling. These gaps make it difficult for AI agents or new contributors to understand, set up, or contribute to the project in a structured way.",
+  "items": [
+    {
+      "description": "Create a comprehensive README.md with project introduction, feature list (math and string utility functions), tech stack (Node.js, Jest, ESLint, Prettier), prerequisites (Node.js >=18), installation steps (npm install), available scripts (npm test, npm run lint, npm run format), and a reference to .env.example for environment setup.",
+      "affected_areas": "README.md (new file at project root)",
+      "expected_benefit": "Enables AI agents and new developers to immediately understand the project purpose, set up a local environment, and run available scripts without guessing or reading package.json manually.",
+      "implementation_risk": "Minimal risk; purely additive documentation. Must be kept in sync with package.json scripts if they change.",
+      "estimated_complexity": "low",
+      "source_criterion_key": "readme_completeness"
+    },
+    {
+      "description": "Add local setup instructions in README.md covering: required Node.js version, how to install dependencies, how to configure environment variables from .env.example, how to run tests and linting, and how to use the pre-commit hooks via Husky.",
+      "affected_areas": "README.md (same file, dedicated 'Getting Started' or 'Local Development' section)",
+      "expected_benefit": "Provides a single source of truth for local setup, reducing onboarding friction and enabling AI agents to bootstrap the project autonomously.",
+      "implementation_risk": "Very low; documentation-only change. Should reference .env.example accurately.",
+      "estimated_complexity": "low",
+      "source_criterion_key": "local_setup_instruction"
+    },
+    {
+      "description": "Add GitHub issue templates (.github/ISSUE_TEMPLATE/bug_report.md and .github/ISSUE_TEMPLATE/feature_request.md), a pull request template (.github/pull_request_template.md), and configure commitlint with the @commitlint/config-conventional preset plus a commit-msg Husky hook to enforce conventional commit messages.",
+      "affected_areas": ".github/ISSUE_TEMPLATE/bug_report.md, .github/ISSUE_TEMPLATE/feature_request.md, .github/pull_request_template.md, .husky/commit-msg, commitlint.config.js, package.json (new devDependencies: @commitlint/cli, @commitlint/config-conventional)",
+      "expected_benefit": "Establishes structured issue reporting, consistent PR descriptions, and machine-parseable commit messages, enabling automated changelogs and giving AI agents reliable traceability between issues, commits, and pull requests.",
+      "implementation_risk": "Medium risk; adding commitlint may reject existing team members' commits if they are not following conventional commit format. Requires team communication and possibly a grace period.",
+      "estimated_complexity": "medium",
+      "source_criterion_key": "issue_task_traceability"
+    },
+    {
+      "description": "Replace the placeholder 'build' script (currently 'echo \"No build configured\"') with either a real build step (e.g., using a bundler like esbuild or simply copying/validating source files) or, if no compilation is needed, remove the misleading build script and add a 'start' script (e.g., 'node src/index.js') so the project has a clear entry-point command.",
+      "affected_areas": "package.json (scripts.build, scripts.start), potentially a new build configuration file (e.g., esbuild.config.js) if bundling is chosen",
+      "expected_benefit": "Gives AI agents and CI pipelines a reliable build command to invoke, and provides a start script for running the project. Eliminates confusion from a no-op build script.",
+      "implementation_risk": "Low-to-medium; if a bundler is added, it introduces a new dependency and configuration. A simpler approach (just adding a start script and removing the fake build) carries minimal risk.",
+      "estimated_complexity": "low",
+      "source_criterion_key": "build_command_availability"
+    }
+  ]
+}
