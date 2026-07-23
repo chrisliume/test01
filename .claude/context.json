@@ -1,0 +1,7 @@
+{
+  "repo_url": "https://github.com/chrisliume/test01",
+  "base_branch": "main",
+  "work_branch": "agent/task-d2819fa5-generate-an-ai-ready-improvement-plan-fo",
+  "worktree_path": "/workspace/worktrees/agent-task-d2819fa5-generate-an-ai-ready-improvement-plan-fo",
+  "issue_title": "Generate an AI-Ready improvement plan for project test01.\n\nYou are given ASSESSMENT_JSON (environmen"
+}
