@@ -2,5 +2,6 @@ node_modules/
 dist/
 build/
 coverage/
+.next/
 package-lock.json
 .claude/

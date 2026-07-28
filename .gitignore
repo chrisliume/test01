@@ -4,4 +4,12 @@ build/
 coverage/
 .env
 .env.local
+.env.*.local
 *.log
+
+# Next.js
+.next/
+out/
+
+# Prisma
+prisma/migrations/*/migration_lock.toml
