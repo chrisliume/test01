@@ -1,8 +1,9 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Table, Button, Space, Modal, Tag, message } from 'antd';
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons';
 import type { ColumnsType, TablePaginationConfig } from 'antd/es/table';
 import type { SorterResult } from 'antd/es/table/interface';
 import UserFilters from './UserFilters';
@@ -28,6 +29,7 @@ interface UsersResponse {
 }
 
 export default function UserTable() {
+  const router = useRouter();
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [total, setTotal] = useState(0);
@@ -156,6 +158,9 @@ export default function UserTable() {
       key: 'name',
       sorter: true,
       sortOrder: sortField === 'name' ? (sortOrder as 'ascend' | 'descend') : undefined,
+      render: (name: string, record) => (
+        <a onClick={() => router.push(`/users/${record.id}`)}>{name}</a>
+      ),
     },
     {
       title: 'Email',
@@ -216,6 +221,11 @@ export default function UserTable() {
 
   return (
     <div>
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 16 }}>
+        <Button type="primary" icon={<PlusOutlined />} onClick={() => router.push('/users/new')}>
+          Create User
+        </Button>
+      </div>
       <UserFilters
         onSearchChange={handleSearchChange}
         onRoleChange={handleRoleChange}
